@@ -1,3 +1,4 @@
+const { redirect } = require('express/lib/response')
 const User = require('../models/user')
 
 
@@ -40,11 +41,38 @@ module.exports.create = function(req,res){
         } else {
             return res.redirect('back')
         }
-    })
+    });
 
 }
 
 //get sign in
 module.exports.createSession = function(req,res){
+    // find user
+    User.findOne({email: req.body.email},function(err,user){
+        if(err){console.log('err finding user in signup'); return}
+    // handle user found
+        if(user){
+
+            //handel password which don't match
+            if(user.password != req.body.password){
+                return res.redirect('back')
+            }
+            // handle session creation
+            res.cookie('user_id',user.id);
+            return res.redirect('/users/profile')
+
+
+        }else{
+            
+            // handle user/ not found
+
+            return res.redirect('back')
+
+        }
+    });
+    
+    
+
+
     
 }
