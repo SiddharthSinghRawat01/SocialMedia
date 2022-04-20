@@ -1,11 +1,22 @@
-const { redirect } = require('express/lib/response')
+const { redirect, clearCookie } = require('express/lib/response')
 const User = require('../models/user')
 
 
 module.exports.profile = function(req,res){
-    return res.render('user_profile',{
-        title: "Profile Page"
-    })
+    if(req.cookies.user_id){
+        User.findById(req.cookies.user_id,function(err,user){
+            if(user){
+                return res.render('user_profile',{
+                    title: "User Profile", 
+                    user: user
+                })
+            }
+            return res.redirect('/users/sign-in')
+        })
+    }else{
+        return res.redirect('/users/sign-in')
+    }
+    
 }
 
 // Sign UP
@@ -70,9 +81,10 @@ module.exports.createSession = function(req,res){
 
         }
     });
-    
-    
+      
+}
 
-
-    
+module.exports.signout = function(req,res){
+    res.clearCookie('user_id')
+    return res.redirect('/users/sign-in')
 }

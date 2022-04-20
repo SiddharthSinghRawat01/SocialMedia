@@ -1,6 +1,13 @@
 <link rel="stylesheet" href="/css/user_profile.css">
 <h1>
-        Social / <%= title %> 
+        Social / Profile Page
+        <%= title %>
+        
 </h1>
+<p>Name: <%= user.name %></p>
+<p>Email: <%= user.email %></p>
 
+<form action="/users/sign-out" method="post">
+        <input type="submit" value="sign out">
+</form>
   
