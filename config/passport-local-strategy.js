@@ -54,13 +54,13 @@ function(email,password,done){ //done handel sucess and err
     // check if user is authenticated
     passport.checkAuthentication = function(req,res,next){
         // if user is signed in then pass on req to next function(controller's action)
-        if (req.isAuthenticated){
+        if (req.isAuthenticated()){
             console.log("is Authenticated")
             return next();
         }
 
         // if user is not signed in
-        return res.redirect('/user/sign-in')
+        return res.redirect('/users/sign-in')
     }
 
     passport.setAuthenticatedUser =function(req,res,next){

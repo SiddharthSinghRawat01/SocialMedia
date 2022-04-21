@@ -9,17 +9,32 @@ module.exports.profile = function(req,res){
 
 // Sign UP
 module.exports.signup = function(req,res){
-    return res.render('user_sign_up',{
-        title: "Social | Sign Up"
-    })
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
+
+    
+        return res.render('user_sign_up',{
+            title: "Social | Sign Up"
+        });
+
+    
+    
 }
 
 
 //Sign IN
 module.exports.signin = function(req,res){
-    return res.render('user_sign_in',{
-        title: "Social | Sign In"
-    })
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
+
+
+        return res.render('user_sign_in',{
+            title: "Social | Sign In"
+        })
+
+    
 }
 
 //get sign up data
