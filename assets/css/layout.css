@@ -1,4 +1,6 @@
-body{
-    margin: 0;
-    /* text-align: center; */
-}
+body {
+  margin: 0;
+  /* text-align: center; */ }
+  body #layout-main {
+    margin-top: 100px;
+    height: 100%; }

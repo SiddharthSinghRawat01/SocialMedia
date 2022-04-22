@@ -1,0 +1,22 @@
+#navbar {
+  background: #000;
+  width: 99vw;
+  position: fixed;
+  top: 0;
+  margin: 0px;
+  box-sizing: border-box; }
+
+a {
+  color: white;
+  margin: 10px;
+  text-decoration: none; }
+
+ul {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  list-style: none; }
+
+.abc {
+  padding-top: 15px;
+  margin-left: auto; }
