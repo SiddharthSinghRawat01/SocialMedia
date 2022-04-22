@@ -55,7 +55,6 @@ function(email,password,done){ //done handel sucess and err
     passport.checkAuthentication = function(req,res,next){
         // if user is signed in then pass on req to next function(controller's action)
         if (req.isAuthenticated()){
-            console.log("is Authenticated")
             return next();
         }
 
