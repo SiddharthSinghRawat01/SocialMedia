@@ -2,3 +2,11 @@
 <h1>
         Social / <%= title %> 
 </h1>
+
+<section id="feed-posts">
+        <h4>Posts</h4>
+        <form action="/posts/create" id="new-post-form" method="post">
+                <textarea name="content" placeholder="Type here..." cols="30" rows="3"></textarea>
+                <input type="submit" value="Post">
+        </form>
+</section>
