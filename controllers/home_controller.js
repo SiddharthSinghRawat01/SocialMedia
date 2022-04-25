@@ -1,6 +1,6 @@
 const Post = require('../models/post')
 
-module.exports.home = async function(req,res){
+module.exports.home = function(req,res){
     // console.log(req.cookies);
 
 
@@ -12,12 +12,22 @@ module.exports.home = async function(req,res){
     // })
 
 // using mongoose population property
-   let posts =  await Post.find({}).populate('user');
+   Post.find({})
+   .populate('user')
+   .populate({
+       path: 'comments',
+       // further populaate
+        populate:{
+            path: 'user'
+        }
+   })
+   .exec(function(err,posts){
+
+    return res.render('home', {
+        title: "Social | Home",
+        posts:  posts
+    });
+
+   });
         
-   return res.render('home', {
-            title: "Social | Home",
-            posts:  posts
-        });
-    
-    
 }

@@ -12,7 +12,7 @@ module.exports.create = function(req,res){
             },function(err,comment){
                 //handel err
 
-                post.comments.push(comment); // comment automtically pushed to post by mongodb
+                post.comments.push(comment); // comment automtically pushed to post by mongodb and post is updateing
                 post.save();
 
                 res.redirect('/');
