@@ -7,9 +7,16 @@ const postSchema = new mongoose.Schema({
         require: true
     },
     user: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId, // poupulation mongoose
         ref: 'User'
-    }
+    },
+    // include id of all coments in post schema
+    comments: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Comment'
+        }
+    ]
 },{
     timestamps: true
 });
