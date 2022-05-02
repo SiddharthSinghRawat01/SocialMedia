@@ -1,10 +1,9 @@
-
 #layout-header{
     nav{
         display: flex;
         justify-content: space-between;
         padding: 0 10px;
-        background: black;
+        background: #2196f3;
         color: white;
         box-shadow: 1px 1px 1px 1px lightgrey;
 
@@ -20,10 +19,9 @@
             ul{
                 margin: 5% 5px;
                 display: flex;
-
+                list-style: none;
                 li{
                     margin-right: 10px;
-                    list-style: none;
                 }
             }
         }

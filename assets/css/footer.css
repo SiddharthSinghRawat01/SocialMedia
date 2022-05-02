@@ -1,5 +1,6 @@
 #layout-footer {
   color: white;
+  position: fixed;
   background: grey;
   padding: 5px 10px;
   display: flex;

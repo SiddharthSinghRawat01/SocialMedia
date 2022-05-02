@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0 10px;
-  background: black;
+  background: #2196f3;
   color: white;
   box-shadow: 1px 1px 1px 1px lightgrey; }
   #layout-header nav .mini-logo p {
@@ -11,10 +11,10 @@
     font-weight: bold; }
   #layout-header nav .auth-links ul {
     margin: 5% 5px;
-    display: flex; }
+    display: flex;
+    list-style: none; }
     #layout-header nav .auth-links ul li {
-      margin-right: 10px;
-      list-style: none; }
+      margin-right: 10px; }
   #layout-header nav a {
     color: white;
     text-decoration: none; }
