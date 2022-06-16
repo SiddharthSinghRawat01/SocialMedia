@@ -17,12 +17,14 @@ if(post){
     post.comments.push(comment); // comment automtically pushed to post by mongodb and post is updateing
     post.save();
 
+    req.flash("success",'Commented')
     res.redirect('/');
 
 }
 } catch (err) {
+    req.flash("error",'err')
     console.log('Error',err);
-    return;
+    return res.redirect('back');
 }
 
 }
@@ -41,13 +43,16 @@ module.exports.destroy = async function(req, res){
 
         let post = await Post.findByIdAndUpdate(postId, { $pull: {comments: req.params.id}});
 
-            return res.redirect('back');
+        req.flash("error",'Comment deleted')
+        return res.redirect('back');
     }else{
+        req.flash("error",'Comment not deleted')
         return res.redirect('back');
     }
     } catch (err) {
+        req.flash("error",'err')
         console.log('Error',err);
-        return;
+        return res.redirect('back');;
     }
 
 }
