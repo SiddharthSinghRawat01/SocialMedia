@@ -75,11 +75,13 @@ module.exports.create = function(req,res){
 
 //get sign in
 module.exports.createSession = function(req,res){
+    req.flash('success', 'Logged in Successfully')
     return res.redirect('/');
 }
 
 module.exports.destroySession = function(req,res){
+    req.flash('success', 'You have loged out')
     req.logout();// passport give this req
     
-    return res.redirect('/')
+    return res.redirect('/') // this is one way to do flash return res.redirect('/',{flash: {sucess:""}}) or we can use it as a middlewawre
 }
