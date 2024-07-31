@@ -33,4 +33,7 @@ This is a social media application built with Express.js and MongoDB.
 
 ## Running the Application
 
-Start the server: npm start
+Start the server: 
+   ```
+   npm start
+   ```
